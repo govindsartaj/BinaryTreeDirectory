@@ -1,5 +1,5 @@
     /*****************************************************************
-     * Govind Brahmanyapura & Hunain Ali	   			             *
+     * Govind Brahmanyapura & Hunain Ali	   			 *
      * PO Box 3138 & 3062                                            *
      * Lab for CSC 207: Binary Trees                                 *
      * Assignment for Friday, Nov 29                                 *
@@ -11,7 +11,7 @@
      *   Written/online sources used:                                *
      *     none                                                      *
      *   Help obtained                                               *
-     *     none 			                                         *
+     *     none 			                                 *
      *   My signature below confirms that the above list of sources  *
      *   is complete AND that I have not talked to anyone else       *
      *   [e.g., CSC 161 students] about the solution to this problem *
