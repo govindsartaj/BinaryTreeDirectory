@@ -1,9 +1,9 @@
 package trees;
 
 /**
- * testing that builds a binary search tree of directory Entries 
- *   with students and faculty
- * and then searches the tree for specific people
+ * class that builds a binary search tree of directory Entries 
+ *   with students and faculty for the purpose of testing methods
+ *	
  */
 
 public class DirectoryBST {
@@ -36,9 +36,97 @@ public class DirectoryBST {
         Faculty fac4 = new Faculty("Samuel", "Rebelsky","rebelsky@cs.grinnell.edu",
                                  "Science 2427", 4410,
                                  "Computer Science", 1997);
+       
+        
+        
+        // testing methods
+        
+        // testing nodeLevel on empty tree
+        System.out.println(tree.nodeLevel(stu1));
+        
+        // testing height on empty tree
+        System.out.println(tree.height());
+        
+        // testing isBalanced on empty tree
+        System.out.println(tree.isBalanced());
+        
+        // testing isHeightBalanced on empty tree
+        System.out.println(tree.isHeightBalanced());
+        
+        // testing remove on empty tree
+        //tree.remove(fac1);
+        
+        // testing findLongestEntry on empty tree
+        System.out.println(tree.findLongest(tree));
+        
 
         // insert entries to directory
         tree.insert(stu1);
+        
+        // testing nodeLevel with data at root
+        System.out.println(tree.nodeLevel(stu1));
+        
+        // testing nodeLevel with data not in tree
+        System.out.println(tree.nodeLevel(stu3));
+
+        // testing height on tree with only one 
+        //   node: root, and no subtrees
+        System.out.println(tree.height());
+        
+        // testing isBalanced on tree with only one
+        //   node: root, and no subtrees
+        System.out.println(tree.isBalanced());
+        
+        // testing isHeightBalanced on tree with only
+        //   one node: root, and no subtrees
+        System.out.println(tree.isHeightBalanced());
+        
+        // testing findLongest on tree with 
+        //   only one node: root, and no subtrees
+        System.out.println(tree.findLongest(tree));
+        
+        // testing remove on tree with only one node: root, 
+        //   and no subtrees
+        tree.remove(stu1);
+        
+        // re-inserting previous root 
+        tree.insert(stu1);
+        
+        // adding node (left child of root)      
+        tree.insert(fac1);
+        
+        // testing isBalanced on tree with 
+        //   node which has left data but not right data
+        System.out.println(tree.isBalanced());
+        
+        // testing isHeightBalanced on tree with 
+        //   node which has left data but not right data
+        System.out.println(tree.isHeightBalanced());
+        
+        
+        // removing left child of root
+        tree.remove(fac1);
+        
+        // initializing entry for testing purposes
+        Student stuTest = new Student("Zuffinay", "Ze Cat", "none",
+                9000, "varies");
+        
+        // adding right child of root
+        tree.insert(stuTest);
+        
+        
+        // testing isBalanced on tree with 
+        //   node which has right data but not left data
+        System.out.println(tree.isBalanced());
+        
+        // testing isHeightBalanced on tree with 
+        //   node which has right data but not left data
+        System.out.println(tree.isHeightBalanced());
+        
+        // removing test entry
+        tree.remove(stuTest);
+        
+        // adding remaining entries
         tree.insert(fac1);
         tree.insert(stu2);
         tree.insert(fac2);
@@ -47,40 +135,56 @@ public class DirectoryBST {
         tree.insert(stu4);
         tree.insert(fac4);
         tree.insert(stu5);
+        
+        // testing nodeLevel with data at level 2
+        System.out.println(tree.nodeLevel(stu2));
+        
+        // testing height on tree with lab data
+        System.out.println(tree.height());
+        
+        // testing isBalanced on tree with lab data
+        System.out.println(tree.isBalanced());
 
-        // print directory
+        // testing isHeightBalanced on tree with lab data
+        System.out.println(tree.isHeightBalanced());
+        
+        // testing isBalanced on tree with lab data + test node
+        tree.insert(stuTest);
+        System.out.println(tree.isBalanced());
+        
+        // testing isHeightBalanced on tree with lab data + test node
+        System.out.println(tree.isHeightBalanced());
+        
+        // testing findLongest on tree with lab data + test node
+        System.out.println(tree.findLongest(tree));
+        
+        // removing testNode
+        tree.remove(stuTest);
+
+        // testing findLongest on tree with lab data
+        System.out.println(tree.findLongest(tree));
+        
+        // testing remove on non-root node where node
+        //   has no right child but has left child
+        tree.remove(stu4);
+        
+        // testing remove on non-root node where node
+        //   has no left child but has right child
+        tree.remove(stu2);
+        
+        // testing remove on root
+        tree.remove(stu1);
+        
+        // testing remove on non-root node where node
+        //   has both right and left children
+        tree.remove(stu3);
+                
+        // testing remove on node that is a leaf
+        tree.remove(fac3);
+        
+        // printing tree
         tree.print();
 
-        // check lookup
-        Entry ent;
-        System.out.println ("Searching for Barbara Ellen -- first entry");
-        ent = tree.lookup(new Entry ("Barbara", "Ellen", ""));
-        if (ent == null)
-            System.out.println("Barbara Ellen not found");
-        else System.out.print(ent);
-
-        System.out.println ("Searching for Terry Walker -- last entry");
-        ent = tree.lookup(new Entry ("Terry", "Walker", ""));
-        if (ent == null)
-            System.out.println("Terry Walker not found");
-        else System.out.print(ent);
-
-        System.out.println ("Searching for Muffin, The Cat");
-        ent = tree.lookup(new Entry ("Muffin", "The Cat", ""));
-        if (ent == null)
-            System.out.println("Muffin, The Cat, not found");
-        else System.out.print(ent);
-
-        System.out.println ("Searching for Muffin, The Dog");
-        ent = tree.lookup(new Entry ("Muffin", "The Dog", ""));
-        if (ent == null)
-            System.out.println("Muffin, The Dog, not found");
-        else System.out.print(ent);
-
-        System.out.println();
-        System.out.println("Testing level");
-        System.out.println(tree.height());
-
-        System.out.println(tree.isBalanced());
+        
     }
 }
